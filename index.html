@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sri Chakra Eye Clinic in Anantapur offers trusted, affordable ophthalmology services including cataract surgery, glaucoma screening, retinal care, and more. Book an appointment online.">
+  <title>Sri Chakra Eye Clinic</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #fff;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      gap: 1rem;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    nav a {
+      color: white;
+      margin: 0 0.75rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #3b82f6;
+    }
+
+    .btn {
+      background: #3b82f6;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #2563eb;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    h1,
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    .services {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #1f2937;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .map {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #9ca3af;
+      border-top: 1px solid #1f2937;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 12px;
+      border-radius: 50%;
+      z-index: 999;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .lang-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #1f2937;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .lang-toggle:hover {
+      background: #374151;
+    }
+
+    .te {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img src="/sri-chakra-logo.png" alt="Sri Chakra Eye Clinic Logo" height="50" />
+    <nav>
+      <a href="#about"><span class="en">About</span><span class="te">మా గురించి</span></a>
+      <a href="#services"><span class="en">Services</span><span class="te">సేవలు</span></a>
+      <a href="#contact"><span class="en">Contact</span><span class="te">సంప్రదించండి</span></a>
+      <a class="btn" href="https://www.zoho.com/bookings" target="_blank"><span class="en">Book Appointment</span><span class="te">అపాయింట్‌మెంట్ బుక్ చేయండి</span></a>
+    </nav>
+    <button class="lang-toggle" onclick="toggleLanguage()">🌐 Telugu | English</button>
+  </header>
+
+  <section class="fade-up">
+    <h1>
+      <span class="en">Welcome to Sri Chakra Eye Clinic</span>
+      <span class="te">శ్రీ చక్ర ఐ క్లినిక్‌కు స్వాగతం</span>
+    </h1>
+    <p style="max-width: 600px; margin: auto;">
+      <span class="en">Delivering trusted ophthalmology care in Anantapur with compassion and cutting-edge technology.</span>
+      <span class="te">అనంతపూర్‌లో నమ్మకమైన కంటి చికిత్సను కరుణతో మరియు ఆధునిక సాంకేతికతతో అందిస్తున్నాము.</span>
+    </p>
+    <div style="margin-top: 1.5rem;">
+      <a class="btn" href="https://www.zoho.com/bookings" target="_blank">
+        <span class="en">Book an Appointment</span>
+        <span class="te">అపాయింట్‌మెంట్ బుక్ చేయండి</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="about" class="fade-up" style="background: #111827;">
+    <h2><span class="en">About Us</span><span class="te">మా గురించి</span></h2>
+    <p style="max-width: 700px; margin: auto;">
+      <span class="en">Sri Chakra Eye Clinic, located in the heart of Anantapur, is led by experienced ophthalmologists offering world-class eye care. We provide comprehensive, affordable services using modern diagnostic and treatment technologies.</span>
+      <span class="te">శ్రీ చక్ర ఐ క్లినిక్ అనంతపూర్‌లో ఉంది. అనుభవజ్ఞులైన వైద్యులు ఇక్కడ ఆధునిక పరికరాలతో ప్రపంచ స్థాయి కంటి వైద్యం అందిస్తున్నారు. మేము సమగ్రంగా మరియు సరసమైన ధరలకు సేవలను అందిస్తున్నాము.</span>
+    </p>
+  </section>
+
+  <section id="services" class="fade-up">
+    <h2><span class="en">Our Services</span><span class="te">మా సేవలు</span></h2>
+    <div class="services">
+      <div class="card"><span class="en">Comprehensive Eye Examination</span><span class="te">సమగ్ర కంటి పరీక్ష</span></div>
+      <div class="card"><span class="en">Cataract Diagnosis & Surgery</span><span class="te">కంటి మొప్ప (కాటరాక్ట్) పరీక్ష మరియు శస్త్రచికిత్స</span></div>
+      <div class="card"><span class="en">Glaucoma Screening</span><span class="te">గ్లాకోమా స్క్రీనింగ్</span></div>
+      <div class="card"><span class="en">Retinal Diagnostics</span><span class="te">రెటినల్ పరీక్షలు</span></div>
+      <div class="card"><span class="en">Diabetic Retinopathy Treatment</span><span class="te">డయాబెటిక్ రెటినోపతి చికిత్స</span></div>
+      <div class="card"><span class="en">Paediatric Eye Care</span><span class="te">పిల్లల కంటి సంరక్షణ</span></div>
+      <div class="card"><span class="en">Contact Lens Clinic</span><span class="te">కాంటాక్ట్ లెన్స్ క్లినిక్</span></div>
+      <div class="card"><span class="en">Dry Eye & Allergy Management</span><span class="te">డ్రై ఐ మరియు అలర్జీ నిర్వహణ</span></div>
+    </div>
+  </section>
+
+  <section id="contact" class="fade-up" style="background: #1f2937;">
+    <h2><span class="en">Contact Us</span><span class="te">మమ్మల్ని సంప్రదించండి</span></h2>
+    <p>📍 Riya Hospital, SAPTHAGIRI CIRCLE, Anantapur, Andhra Pradesh 515001</p>
+    <p>📞 <a href="tel:09493288101" style="color:#3b82f6;">094932 88101</a></p>
+    <p>📧 <a href="mailto:srichakraeyeclinic@gmail.com" style="color:#3b82f6;">srichakraeyeclinic@gmail.com</a></p>
+    <p>📆 <span class="en">Mon–Sat: 9:30 AM – 8 PM | Sunday: Closed</span><span class="te">సోమ–శని: ఉదయం 9:30 – రాత్రి 8 | ఆదివారం: సెలవు</span></p>
+    <iframe class="map" src="https://www.google.com/maps?q=Riya+Hospital,+Sapthagiri+Circle,+Anantapur&output=embed" loading="lazy" title="Location Map"></iframe>
+  </section>
+
+  <a href="https://wa.me/919493288101" class="whatsapp-float" target="_blank" title="Chat on WhatsApp" aria-label="Chat on WhatsApp via WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="24" viewBox="0 0 24 24" width="24" aria-hidden="true">
+      <path d="M12.04 2c-5.5 0-9.98 4.48-9.98 9.98 0 1.76.46 3.44 1.3 4.94L2 22l5.3-1.38c1.4.72 2.95 1.1 4.71 1.1 5.5 0 9.98-4.48 9.98-9.98S17.54 2 12.04 2zm5.63 13.57c-.24.67-1.4 1.3-1.95 1.39-.5.1-1.12.14-3.6-.75-3.02-1.19-4.95-4.31-5.1-4.51s-1.22-1.63-1.22-3.12.77-2.2 1.04-2.5c.27-.3.6-.37.8-.37.21 0 .4.01.57.01.18 0 .42-.07.65.49s.75 2.13.82 2.29c.06.16.1.33.02.5-.08.17-.12.28-.23.44-.11.15-.24.32-.34.43-.11.12-.22.26-.09.5.14.24.63 1.04 1.36 1.69.93.84 1.71 1.1 1.95 1.23.24.12.38.1.52-.05.14-.15.6-.7.76-.94.17-.24.32-.2.54-.12.22.08 1.37.65 1.6.76.24.12.4.18.46.27.05.08.05.74-.18 1.4z" />
+    </svg>
+  </a>
+
+  <footer>
+    <p>© 2025 Sri Chakra Eye Clinic. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleLanguage() {
+      document.querySelectorAll('.en, .te').forEach(el => {
+        el.style.display = el.classList.contains('en') ?
+          (el.style.display === 'none' ? 'inline' : 'none') :
+          (el.style.display === 'inline' ? 'none' : 'inline');
+      });
+    }
+  </script>
+
+</body>
+
+</html>
