@@ -131,25 +131,75 @@
       }
     }
 
-    .lang-toggle {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: #1f2937;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .lang-toggle:hover {
-      background: #374151;
+    .en {
+      display: inline;
     }
 
     .te {
       display: none;
+    }
+
+    /* Language Toggle Switch */
+    .switch {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: inline-block;
+      width: 80px;
+      height: 30px;
+    }
+
+    .switch input {
+      display: none;
+    }
+
+    .switch label {
+      background: #3b82f6;
+      border-radius: 30px;
+      cursor: pointer;
+      display: block;
+      height: 100%;
+      position: absolute;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .switch label::after {
+      content: "";
+      background: #fff;
+      border-radius: 50%;
+      bottom: 3px;
+      left: 4px;
+      position: absolute;
+      height: 24px;
+      width: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .switch input:checked + label {
+      background: #2563eb;
+    }
+
+    .switch input:checked + label::after {
+      transform: translateX(48px);
+    }
+
+    .switch .on,
+    .switch .off {
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      position: absolute;
+      top: 4px;
+      z-index: 1;
+    }
+
+    .switch .on {
+      left: 12px;
+    }
+
+    .switch .off {
+      right: 12px;
     }
   </style>
 </head>
@@ -162,13 +212,14 @@
       <a href="#about"><span class="en">About</span><span class="te">మా గురించి</span></a>
       <a href="#services"><span class="en">Services</span><span class="te">సేవలు</span></a>
       <a href="#contact"><span class="en">Contact</span><span class="te">సంప్రదించండి</span></a>
-      <input type="checkbox" id="language-toggle-checkbox" class="language-toggle-checkbox" onchange="toggleLanguage()">
-      <button class="lang-toggle-btn" onclick="toggleLanguage()" aria-label="Toggle Language" title="Toggle Language">
-        <span class="lang-icon"></span>
-      </button>
       <a class="btn" href="https://www.zoho.com/bookings" target="_blank"><span class="en">Book Appointment</span><span class="te">అపాయింట్‌మెంట్ బుక్ చేయండి</span></a>
     </nav>
-   
+    <div class="switch">
+      <input id="language-toggle" type="checkbox" onchange="toggleLanguage()" />
+      <label for="language-toggle"></label>
+      <span class="on">TE</span>
+      <span class="off">EN</span>
+    </div>
   </header>
 
   <section class="fade-up">
@@ -231,12 +282,16 @@
 
   <script>
     function toggleLanguage() {
-      document.querySelectorAll('.en, .te').forEach(el => {
-        el.style.display = el.classList.contains('en') ?
-          (el.style.display === 'none' ? 'inline' : 'none') :
-          (el.style.display === 'inline' ? 'none' : 'inline');
-      });
+      const isChecked = document.getElementById("language-toggle").checked;
+      document.querySelectorAll('.en').forEach(el => el.style.display = isChecked ? 'none' : 'inline');
+      document.querySelectorAll('.te').forEach(el => el.style.display = isChecked ? 'inline' : 'none');
     }
+
+    // Set default language on page load
+    window.onload = () => {
+      document.getElementById("language-toggle").checked = false;
+      document.querySelectorAll('.te').forEach(el => el.style.display = 'none');
+    };
   </script>
 
 </body>
