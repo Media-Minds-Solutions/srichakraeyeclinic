@@ -1,0 +1,276 @@
+/* Reset & basic styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #f4faff;
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  text-align: center;
+  padding: 20px 10px;
+  background-color: #1565c0;
+  color: white;
+  user-select: none;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.language-toggle {
+  margin-bottom: 10px;
+}
+
+.lang-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 6px 16px;
+  margin: 0 6px;
+  font-size: 1rem;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.lang-btn.active,
+.lang-btn:hover,
+.lang-btn:focus {
+  background-color: white;
+  color: #1565c0;
+  outline: none;
+}
+
+/* Swiper container */
+.swiper-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 40px auto 80px;
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+/* Service card */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.card:hover,
+.card:focus {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+/* Language text toggle */
+.lang-text {
+  display: none;
+}
+.lang-text.visible {
+  display: inline;
+}
+
+/* Overlay for service details */
+.service-detail-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(21, 101, 192, 0.95);
+  color: white;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-detail-overlay.visible {
+  display: flex;
+  opacity: 1;
+}
+
+.service-detail-overlay h2 {
+  margin-top: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.service-detail-overlay p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-top: 20px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 900;
+  padding: 0;
+  line-height: 1;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #ffd54f;
+  outline: none;
+}
+
+/* Swiper navigation buttons customization */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #1565c0;
+  transition: color 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover,
+.swiper-button-next:focus,
+.swiper-button-prev:focus {
+  color: #003c8f;
+  outline: none;
+}
+
+/* Contact Section */
+.contact-section {
+  background: white;
+  max-width: 700px;
+  margin: 0 auto 80px;
+  padding: 40px 30px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(21, 101, 192, 0.2);
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-section label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.contact-section input,
+.contact-section textarea {
+  padding: 12px 15px;
+  border: 2px solid #1565c0;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+  outline: none;
+  border-color: #003c8f;
+}
+
+.contact-section button {
+  align-self: center;
+  background-color: #1565c0;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.contact-section button:hover,
+.contact-section button:focus {
+  background-color: #003c8f;
+  outline: none;
+}
+
+#form-response {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 12px;
+  min-height: 24px;
+  color: #1565c0;
+}
+
+/* Map Section */
+.map-section {
+  max-width: 900px;
+  margin: 0 auto 80px;
+  padding: 0 15px 40px;
+}
+
+.map-section h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.map-container {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(21, 101, 192, 0.2);
+  height: 350px;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .swiper-container {
+    width: 95%;
+  }
+
+  .card {
+    min-height: 110px;
+  }
+}
