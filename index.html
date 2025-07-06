@@ -1,140 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sri Chakra Eye Clinic</title>
-
-  <!-- AOS CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-
-  <!-- Your CSS -->
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Sri Chakra Eye Clinic in Anantapur offers trusted, affordable ophthalmology services including cataract surgery, glaucoma screening, retinal care, and more. Book an appointment online." />
+<title>Sri Chakra Eye Clinic</title>
+<link rel="icon" href="./favicon.ico" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/a2e0e6f91d.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>Sri Chakra Eye Clinic</h1>
-    <div class="language-toggle" role="group" aria-label="Language selection">
-      <button class="lang-btn active" aria-pressed="true" data-lang="en">English</button>
-      <button class="lang-btn" aria-pressed="false" data-lang="te">తెలుగు</button>
-    </div>
+
+  <div class="lang-toggle" data-aos="fade-left" role="navigation" aria-label="Language Switcher">
+    <button class="lang-btn active" aria-pressed="true" onclick="switchLang('en')" id="lang-en">English</button>
+    <button class="lang-btn" aria-pressed="false" onclick="switchLang('te')" id="lang-te">తెలుగు</button>
+  </div>
+
+  <header data-aos="fade-down" role="banner">
+    <img src="./SriCHakrawithname.jpg" alt="Sri Chakra Eye Clinic Logo" height="50" />
+    <nav role="navigation" aria-label="Primary Navigation">
+      <a href="#about"><span class="en">About</span><span class="te">మా గురించి</span></a>
+      <a href="#services"><span class="en">Services</span><span class="te">సేవలు</span></a>
+      <a href="#contact"><span class="en">Contact</span><span class="te">సంప్రదించండి</span></a>
+      <a class="btn" href="https://calendly.com/srichakraeyeclinictest" target="_blank" rel="noopener noreferrer">
+        <span class="en">Book Appointment</span>
+        <span class="te">అపాయింట్‌మెంట్ బుక్ చేయండి</span>
+      </a>
+    </nav>
   </header>
 
-  <!-- Services Section -->
-  <section aria-label="Our Services" class="services-section">
-    <div class="swiper-container" data-aos="fade-up">
-      <div class="swiper-wrapper" id="services-grid">
-        <!-- Service Cards -->
-        <div class="card swiper-slide" tabindex="0" role="button" data-service="comprehensive-exam" aria-label="Comprehensive Eye Examination">
-          <h3>
-            <span class="lang-text lang-en visible">Comprehensive Eye Examination</span>
-            <span class="lang-text lang-te">సమగ్ర కంటి పరీక్ష</span>
-          </h3>
-        </div>
-        <div class="card swiper-slide" tabindex="0" role="button" data-service="cataract-surgery" aria-label="Cataract Diagnosis & Surgery">
-          <h3>
-            <span class="lang-text lang-en visible">Cataract Diagnosis & Surgery</span>
-            <span class="lang-text lang-te">కంటి మొప్ప పరీక్ష & శస్త్రచికిత్స</span>
-          </h3>
-        </div>
-        <div class="card swiper-slide" tabindex="0" role="button" data-service="retina-consultation" aria-label="Retina & Diabetes Consultation">
-          <h3>
-            <span class="lang-text lang-en visible">Retina & Diabetes Consultation</span>
-            <span class="lang-text lang-te">రెటినా మరియు మధుమేహం సలహా</span>
-          </h3>
-        </div>
-        <div class="card swiper-slide" tabindex="0" role="button" data-service="lasik-surgery" aria-label="LASIK Surgery">
-          <h3>
-            <span class="lang-text lang-en visible">LASIK Surgery</span>
-            <span class="lang-text lang-te">LASIK శస్త్రచికిత్స</span>
-          </h3>
-        </div>
-        <div class="card swiper-slide" tabindex="0" role="button" data-service="pediatric-ophthalmology" aria-label="Pediatric Ophthalmology">
-          <h3>
-            <span class="lang-text lang-en visible">Pediatric Ophthalmology</span>
-            <span class="lang-text lang-te">పిల్లల కంటి వైద్యశాస్త్రం</span>
-          </h3>
-        </div>
+  <main>
+    <section data-aos="fade-up" role="region" aria-labelledby="welcome-title">
+      <h1 id="welcome-title"><span class="en">Welcome to Sri Chakra Eye Clinic</span><span class="te">శ్రీ చక్ర ఐ క్లినిక్‌కు స్వాగతం</span></h1>
+      <p><span class="en">Delivering trusted ophthalmology care in Anantapur with compassion and cutting-edge technology.</span><span class="te">అనంతపూర్‌లో నమ్మకమైన కంటి చికిత్సను కరుణతో మరియు ఆధునిక సాంకేతికతతో అందిస్తున్నాము.</span></p>
+      <a class="btn" href="https://calendly.com/srichakraeyeclinictest" target="_blank" rel="noopener noreferrer">
+        <span class="en">Book an Appointment</span>
+        <span class="te">అపాయింట్‌మెంట్ బుక్ చేయండి</span>
+      </a>
+    </section>
+
+    <svg viewBox="0 0 1440 320" aria-hidden="true" focusable="false"><path fill="#111827" fill-opacity="1" d="M0,224L1440,96L1440,320L0,320Z"></path></svg>
+
+    <section id="about" data-aos="fade-up" style="background: #111827;" role="region" aria-labelledby="about-title">
+      <h2 id="about-title"><span class="en">About Us</span><span class="te">మా గురించి</span></h2>
+      <p><span class="en">Sri Chakra Eye Clinic, located in the heart of Anantapur, is led by experienced ophthalmologists offering world-class eye care. We provide comprehensive, affordable services using modern diagnostic and treatment technologies.</span><span class="te">శ్రీ చక్ర ఐ క్లినిక్ అనంతపూర్‌లో ఉంది. అనుభవజ్ఞులైన వైద్యులు ఆధునిక పరికరాలతో ప్రపంచ స్థాయి కంటి వైద్యం అందిస్తున్నారు.</span></p>
+    </section>
+
+    <section id="services" data-aos="fade-up" role="region" aria-labelledby="services-title">
+      <h2 id="services-title"><span class="en">Our Services</span><span class="te">మా సేవలు</span></h2>
+      <div class="services" id="services-container">
+        <!-- Cards will be dynamically injected here -->
       </div>
+    </section>
 
-      <!-- Navigation -->
-      <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"></div>
-      <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-
-    <!-- Service detail overlay -->
-    <div id="service-detail-overlay" class="service-detail-overlay" role="dialog" aria-modal="true" aria-labelledby="service-detail-title" tabindex="-1">
-      <button class="close-btn" aria-label="Close details">×</button>
-      <h2 id="service-detail-title"></h2>
-      <p id="service-detail-desc"></p>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact-section" aria-label="Contact Us" data-aos="fade-up">
-    <h2>
-      <span class="lang-text lang-en visible">Contact Us</span>
-      <span class="lang-text lang-te">మమ్మల్ని సంప్రదించండి</span>
-    </h2>
-
-    <form id="contact-form" novalidate>
-      <label for="name">
-        <span class="lang-text lang-en visible">Name</span>
-        <span class="lang-text lang-te">పేరు</span>
-      </label>
-      <input type="text" id="name" name="name" required aria-required="true" />
-
-      <label for="email">
-        <span class="lang-text lang-en visible">Email</span>
-        <span class="lang-text lang-te">ఇమెయిల్</span>
-      </label>
-      <input type="email" id="email" name="email" required aria-required="true" />
-
-      <label for="message">
-        <span class="lang-text lang-en visible">Message</span>
-        <span class="lang-text lang-te">సందేశం</span>
-      </label>
-      <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
-
-      <button type="submit" aria-label="Send Message">
-        <span class="lang-text lang-en visible">Send</span>
-        <span class="lang-text lang-te">పంపండి</span>
-      </button>
-    </form>
-    <div id="form-response" role="alert" aria-live="polite"></div>
-  </section>
-
-  <!-- Map Section -->
-  <section class="map-section" aria-label="Clinic Location" data-aos="fade-up">
-    <h2>
-      <span class="lang-text lang-en visible">Our Location</span>
-      <span class="lang-text lang-te">మా స్థానం</span>
-    </h2>
-    <div class="map-container">
+    <section id="contact" data-aos="fade-up" style="background: #1f2937;" role="region" aria-labelledby="contact-title">
+      <h2 id="contact-title"><span class="en">Contact Us</span><span class="te">మమ్మల్ని సంప్రదించండి</span></h2>
+      <p>📍 Sri Chakra Eye Clinic, near Riya Hospital, SAPTHAGIRI CIRCLE, Anantapur, Andhra Pradesh 515001</p>
+      <p>📞 <a href="tel:09493288101" style="color:#3b82f6;">094932 88101</a></p>
+      <p>📧 <a href="mailto:srichakraeyeclinic@gmail.com" style="color:#3b82f6;">srichakraeyeclinic@gmail.com</a></p>
+      <p><span class="en">📆 Mon–Sat: 9:30 AM – 8 PM | Sunday: Closed</span><span class="te">📆 సోమ–శని: ఉదయం 9:30 – రాత్రి 8 | ఆదివారం: సెలవు</span></p>
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3809.247678212797!2d77.60094367472014!3d14.681695089743084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbb9cb39b17425d%3A0x65ffcc0f3a4e79ca!2sSri%20Chakra%20Eye%20Clinic%2C%20Anantapur!5e0!3m2!1sen!2sin!4v1699104391133!5m2!1sen!2sin"
-        width="100%"
-        height="350"
-        style="border:0;"
-        allowfullscreen=""
+        class="map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.0580662904767!2d77.60979327483724!3d14.68138647510508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb1a951ed15a3d5%3A0x37e6cfa738dc2ab9!2sRiya%20Hospital!5e0!3m2!1sen!2sin!4v1720254847992!5m2!1sen!2sin"
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Sri Chakra Eye Clinic Location on Map"
+        title="Location Map"
+        aria-label="Google Maps Location"
       ></iframe>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- AOS JS -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <a href="https://wa.me/919493288101" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp" style="font-size: 24px;"></i>
+  </a>
 
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <footer role="contentinfo">
+    <p>© 2025 Sri Chakra Eye Clinic. All rights reserved.</p>
+  </footer>
 
-  <!-- Your JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
