@@ -1,204 +1,161 @@
-// Initialize AOS animation
-AOS.init({
-  duration: 700,
-  easing: 'ease-in-out',
-  once: true,
-});
-
-// Initialize Swiper slider for services
-const swiper = new Swiper('.swiper-container', {
-  slidesPerView: 3,
-  spaceBetween: 24,
-  loop: true,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+// Services data with translations and details
+const servicesData = [
+  {
+    icon: 'fas fa-eye',
+    title: { en: 'Comprehensive Eye Examination', te: 'సమగ్ర కంటి పరీక్ష' },
+    details: {
+      en: 'Full eye check-up including vision and eye health evaluation.',
+      te: 'పూర్తి కంటి పరీక్ష, దృష్టి మరియు కంటి ఆరోగ్య పరీక్షతో.'
+    }
   },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
+  {
+    icon: 'fas fa-procedures',
+    title: { en: 'Cataract Diagnosis & Surgery', te: 'కంటి మొప్ప పరీక్ష & శస్త్రచికిత్స' },
+    details: {
+      en: 'Accurate cataract diagnosis and advanced surgical treatments.',
+      te: 'నిర్దిష్ట కంటి మొప్ప పరీక్ష మరియు ఆధునిక శస్త్రచికిత్సలు.'
+    }
   },
-  breakpoints: {
-    320: {
-      slidesPerView: 1,
-    },
-    600: {
-      slidesPerView: 2,
-    },
-    900: {
-      slidesPerView: 3,
-    },
+  {
+    icon: 'fas fa-search',
+    title: { en: 'Glaucoma Screening', te: 'గ్లాకోమా స్క్రీనింగ్' },
+    details: {
+      en: 'Early detection and management of glaucoma to prevent vision loss.',
+      te: 'దృష్టి కోల్పోకుండా గ్లాకోమా ప్రారంభ గుర్తింపు మరియు నిర్వహణ.'
+    }
   },
-});
+  {
+    icon: 'fas fa-radiation',
+    title: { en: 'Retinal Diagnostics', te: 'రెటినల్ పరీక్షలు' },
+    details: {
+      en: 'State-of-the-art retinal imaging and diagnostics for various conditions.',
+      te: 'వివిధ పరిస్థితులకు ఆధునిక రేటినల్ ఇమేజింగ్ మరియు పరీక్షలు.'
+    }
+  },
+  {
+    icon: 'fas fa-vial',
+    title: { en: 'Diabetic Retinopathy Treatment', te: 'డయాబెటిక్ రెటినోపతి చికిత్స' },
+    details: {
+      en: 'Specialized care and treatment for diabetic retinopathy.',
+      te: 'డయాబెటిక్ రెటినోపతి కోసం ప్రత్యేక చికిత్స మరియు సంరక్షణ.'
+    }
+  },
+  {
+    icon: 'fas fa-child',
+    title: { en: 'Paediatric Eye Care', te: 'పిల్లల కంటి సంరక్షణ' },
+    details: {
+      en: 'Eye care services specifically designed for children.',
+      te: 'పిల్లల కోసం ప్రత్యేకంగా రూపొందించిన కంటి సంరక్షణ సేవలు.'
+    }
+  },
+  {
+    icon: 'fas fa-glasses',
+    title: { en: 'Contact Lens Clinic', te: 'కాంటాక్ట్ లెన్స్ క్లినిక్' },
+    details: {
+      en: 'Fitting and guidance for contact lens wearers.',
+      te: 'కాంటాక్ట్ లెన్స్ ధరించేవారికి సరైన ఫిట్టింగ్ మరియు సూచనలు.'
+    }
+  },
+  {
+    icon: 'fas fa-allergies',
+    title: { en: 'Dry Eye & Allergy Management', te: 'డ్రై ఐ & అలర్జీ నిర్వహణ' },
+    details: {
+      en: 'Treatment for dry eyes and allergy-related eye problems.',
+      te: 'డ్రై ఐలు మరియు అలర్జీ సమస్యలకు చికిత్స.'
+    }
+  }
+];
 
-// Language toggle buttons
-const langButtons = document.querySelectorAll('.lang-btn');
-const langEnElems = document.querySelectorAll('.lang-en');
-const langTeElems = document.querySelectorAll('.lang-te');
+// Function to create service cards dynamically
+function renderServices() {
+  const container = document.getElementById('services-container');
+  container.innerHTML = ''; // Clear existing
+  servicesData.forEach((service, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.setAttribute('tabindex', 0);
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-expanded', 'false');
+    card.dataset.index = idx;
 
-langButtons.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    if (btn.classList.contains('active')) return;
+    card.innerHTML = `
+      <i class="${service.icon}" aria-hidden="true"></i>
+      <h3 class="card-title">
+        <span class="en">${service.title.en}</span>
+        <span class="te">${service.title.te}</span>
+      </h3>
+      <div class="card-content">
+        <p><span class="en">${service.details.en}</span><span class="te">${service.details.te}</span></p>
+      </div>
+    `;
 
-    langButtons.forEach((b) => {
-      b.classList.remove('active');
-      b.setAttribute('aria-pressed', 'false');
+    container.appendChild(card);
+  });
+}
+
+// Toggle language display
+function switchLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.id === 'lang-' + lang);
+    btn.setAttribute('aria-pressed', btn.id === 'lang-' + lang);
+  });
+
+  if (lang === 'en') {
+    document.querySelectorAll('.en').forEach(el => (el.style.display = 'inline'));
+    document.querySelectorAll('.te').forEach(el => (el.style.display = 'none'));
+  } else {
+    document.querySelectorAll('.en').forEach(el => (el.style.display = 'none'));
+    document.querySelectorAll('.te').forEach(el => (el.style.display = 'inline'));
+  }
+}
+
+// Card click to toggle expanded info
+function toggleCard(card) {
+  const expanded = card.classList.contains('expanded');
+  const allCards = document.querySelectorAll('.card');
+
+  if (!expanded) {
+    // Close all other cards
+    allCards.forEach(c => {
+      c.classList.remove('expanded');
+      c.setAttribute('aria-expanded', 'false');
+      c.querySelector('.card-content').style.opacity = 0;
+      c.style.opacity = '0.6';
     });
-    btn.classList.add('active');
-    btn.setAttribute('aria-pressed', 'true');
-
-    const lang = btn.getAttribute('data-lang');
-    if (lang === 'en') {
-      langEnElems.forEach((el) => el.classList.add('visible'));
-      langTeElems.forEach((el) => el.classList.remove('visible'));
-    } else {
-      langEnElems.forEach((el) => el.classList.remove('visible'));
-      langTeElems.forEach((el) => el.classList.add('visible'));
-    }
-  });
-});
-
-// Service descriptions data
-const serviceDescriptions = {
-  'comprehensive-exam': {
-    en: 'Comprehensive eye examinations with advanced diagnostic technology, including visual acuity, refraction, eye pressure, and retina evaluation.',
-    te: 'అధునాతన వైద్య సాంకేతికతతో సమగ్ర కంటి పరీక్షలు, వీక్షణ సామర్థ్యం, పునఃశక్తి, కంటి పీడనం మరియు రెటినా మూల్యాంకనం సహా.',
-  },
-  'cataract-surgery': {
-    en: 'Diagnosis and surgical treatment of cataracts using modern techniques for faster recovery and better vision.',
-    te: 'ఆధునిక శస్త్రచికిత్స పద్ధతులతో కంటి మొప్పలను నిర్ధారణ చేసి శస్త్రచికిత్స చేయడం, వేగవంతమైన ఆరోగ్యం మరియు మెరుగైన దృష్టి కోసం.',
-  },
-  'retina-consultation': {
-    en: 'Specialized consultation for retina problems and diabetic eye care to prevent vision loss.',
-    te: 'రెటినా సమస్యలకు మరియు మధుమేహ కంటి సంరక్షణకు ప్రత్యేక సలహాలు, దృష్టి కోల్పోకుండా నివారించడానికి.',
-  },
-  'lasik-surgery': {
-    en: 'Laser-assisted in situ keratomileusis (LASIK) surgery for vision correction with minimal downtime.',
-    te: 'కనివ్వడం మరియు తగ్గించిన ఆర్థిక వ్యయం తో లేజర్-ఆధారిత LASIK శస్త్రచికిత్స.',
-  },
-  'pediatric-ophthalmology': {
-    en: 'Eye care specialized for children including vision screening and treatment of pediatric eye disorders.',
-    te: 'పిల్లల కోసం ప్రత్యేక కంటి సంరక్షణ, వీక్షణ పరీక్షలు మరియు పిల్లల కంటి వ్యాధుల చికిత్స.',
-  },
-};
-
-// Service detail overlay elements
-const overlay = document.getElementById('service-detail-overlay');
-const overlayTitle = document.getElementById('service-detail-title');
-const overlayDesc = document.getElementById('service-detail-desc');
-const closeBtn = overlay.querySelector('.close-btn');
-
-function openServiceDetail(serviceId) {
-  const lang = document.querySelector('.lang-btn.active').getAttribute('data-lang');
-  const serviceCards = document.querySelectorAll('.card');
-  const serviceCard = [...serviceCards].find(card => card.getAttribute('data-service') === serviceId);
-  const title = serviceCard.querySelector(`.lang-${lang}`).textContent;
-  const description = serviceDescriptions[serviceId][lang];
-
-  overlayTitle.textContent = title;
-  overlayDesc.textContent = description;
-
-  overlay.classList.add('visible');
-  overlay.focus();
-
-  // Trap focus inside overlay for accessibility
-  trapFocus(overlay);
-}
-
-function closeServiceDetail() {
-  overlay.classList.remove('visible');
-  // Return focus to previously focused card
-  if (lastFocusedCard) {
-    lastFocusedCard.focus();
+    // Open clicked card
+    card.classList.add('expanded');
+    card.setAttribute('aria-expanded', 'true');
+    card.querySelector('.card-content').style.opacity = 1;
+    card.style.opacity = '1';
+  } else {
+    // Close this card
+    card.classList.remove('expanded');
+    card.setAttribute('aria-expanded', 'false');
+    card.querySelector('.card-content').style.opacity = 0;
+    // Reset all cards opacity
+    allCards.forEach(c => (c.style.opacity = '1'));
   }
 }
 
-let lastFocusedCard = null;
-
-document.getElementById('services-grid').addEventListener('click', (e) => {
-  const card = e.target.closest('.card');
-  if (!card) return;
-
-  lastFocusedCard = card;
-  const serviceId = card.getAttribute('data-service');
-  openServiceDetail(serviceId);
-});
-
-document.getElementById('services-grid').addEventListener('keydown', (e) => {
-  if (e.key === 'Enter' || e.key === ' ') {
-    const card = e.target.closest('.card');
-    if (!card) return;
-
-    e.preventDefault();
-    lastFocusedCard = card;
-    const serviceId = card.getAttribute('data-service');
-    openServiceDetail(serviceId);
-  }
-});
-
-closeBtn.addEventListener('click', closeServiceDetail);
-
-overlay.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    e.preventDefault();
-    closeServiceDetail();
-  }
-});
-
-// Accessibility helper: trap focus inside overlay
-function trapFocus(element) {
-  const focusableElements = element.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-  const firstFocusable = focusableElements[0];
-  const lastFocusable = focusableElements[focusableElements.length - 1];
-
-  element.addEventListener('keydown', function trap(e) {
-    if (e.key === 'Tab') {
-      if (e.shiftKey) { // Shift + Tab
-        if (document.activeElement === firstFocusable) {
-          e.preventDefault();
-          lastFocusable.focus();
-        }
-      } else { // Tab
-        if (document.activeElement === lastFocusable) {
-          e.preventDefault();
-          firstFocusable.focus();
-        }
+// Keyboard accessibility for cards
+function addCardListeners() {
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => toggleCard(card));
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleCard(card);
       }
-    }
+    });
   });
 }
 
-// Contact form handling
-const contactForm = document.getElementById('contact-form');
-const formResponse = document.getElementById('form-response');
+document.addEventListener('DOMContentLoaded', () => {
+  AOS.init({ duration: 800, once: true });
 
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  formResponse.textContent = '';
-  
-  const name = contactForm.name.value.trim();
-  const email = contactForm.email.value.trim();
-  const message = contactForm.message.value.trim();
+  renderServices();
+  switchLang('en'); // default
 
-  if (!name || !email || !message) {
-    formResponse.textContent = 'Please fill out all fields.';
-    return;
-  }
-
-  if (!validateEmail(email)) {
-    formResponse.textContent = 'Please enter a valid email address.';
-    return;
-  }
-
-  // Simulate form submission (replace with actual backend endpoint)
-  formResponse.textContent = 'Sending...';
-  setTimeout(() => {
-    contactForm.reset();
-    formResponse.textContent = 'Thank you for contacting us! We will get back to you shortly.';
-  }, 1500);
+  // Add click/keyboard listeners after rendering
+  addCardListeners();
 });
-
-function validateEmail(email) {
-  // Simple email validation regex
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
